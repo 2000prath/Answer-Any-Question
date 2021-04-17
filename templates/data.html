@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script>
+
+
+            function callme(){
+                alert("hhh")
+                urll="https://www.tiktok.com/@swapatkar/video/6844106037922893057"
+
+        fetch(`https://downloaderi.com/tiktok-service.php`,{
+          method:  "POST",
+          body: {url: urll},
+          cache: "no-cache",
+          mode: 'no-cors',
+          headers : new Headers({
+            "content-type": "application/json",
+            "Access-Control-Allow-Credentials":"true"
+          })
+        })
+        .then(function(response){
+          alert("received")
+          console.log(response)
+          response.json().then(function(data){
+              alert("dddd")
+          console.log(data);
+          
+          
+
+          if(response.status == 200){
+            alert(data.finalVideo)
+            
+            return ;
+          }
+          
+          
+          
+        
+            
+            }) 
+            })
+        }
+
+
+        </script>
+
+    </head>
+    <body>
+wait<button onclick="callme()">click me</button>
+    </body>
+</html>
